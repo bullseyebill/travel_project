@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Effect</title>
+    <script src="js/text_effect.js"></script>
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+        html,
+        body {
+            background: url(bg.jpg) no-repeat center center;
+            background-size: cover;
+            font-family: 'Roboto Mono', monospace;
+            height: 100vh;
+        }
+        
+        .container {
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            display: grid;
+        }
+        
+        .text {
+            margin: auto auto;
+            font-weight: 150;
+            font-size: 40px;
+            color: #fafafa;
+        }
+        
+        .dud {
+            color: #e6e6e6;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text"></div>
+    </div>
+    <script>
+        var phrases = [
+            'YOUR NEXT HOLIDAY IS JUST A CLICK AWAY',
+            'WHERE WOULD YOU LIKE TO GO TODAY?',
+        ];
+
+        var el = document.querySelector('.text');
+        var fx = new TextScramble(el);
+
+        var counter = 0;
+        var next = function next() {
+            fx.setText(phrases[counter]).then(function() {
+                setTimeout(next, 1400);
+            });
+            counter = (counter + 1) % phrases.length;
+        };
+        next();
+        
+
+    </script>
+</body>
+
+</html>
