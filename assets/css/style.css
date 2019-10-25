@@ -26,6 +26,7 @@ body {
 
 /* BUTTON STYLING*/
  
-.buttons {
+.buttons-islands {
  font-family: 'Roboto Mono', monospace;
+ font-size: 20px;
  }
